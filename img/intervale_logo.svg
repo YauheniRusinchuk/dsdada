@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.0.0.4-->
+<svg stroke-width="0.501" stroke-linejoin="bevel" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="82.5pt" height="7.5pt" viewBox="0 0 82.5 7.5">
+ <defs>
+	</defs>
+ <g id="Document" fill="none" stroke="black" font-family="Times New Roman" font-size="16" transform="scale(1 -1)">
+  <g id="Spread" transform="translate(0 -7.5)">
+   <g id="Page background">
+    <path d="M 0.002,7.499 L 0.002,0 L 82.497,0 L 82.497,7.499 L 0.002,7.499 Z" stroke-linejoin="bevel" stroke="none" stroke-width="0" marker-start="none" marker-end="none" stroke-miterlimit="79.8403193612775"/>
+   </g>
+   <g id="MouseOff">
+    <g id="Group" stroke-linejoin="round" stroke-linecap="round" stroke="none" fill="#7f7f7f" fill-rule="nonzero" stroke-width="1.236" stroke-miterlimit="79.8403193612775">
+     <path d="M 0,7.5 L 1.673,7.5 L 1.673,0 L 0,0 L 0,7.5 Z" marker-start="none" marker-end="none"/>
+     <path d="M 11.635,7.5 L 13.306,7.5 L 13.306,0 L 11.635,0 L 8.062,4.699 L 8.062,0 L 6.387,0 L 6.387,7.5 L 7.954,7.5 L 11.635,2.672 L 11.635,7.5 Z" marker-start="none" marker-end="none"/>
+     <path d="M 21.194,6.049 L 21.194,0 L 19.521,0 L 19.521,6.049 L 17.395,6.049 L 17.395,7.5 L 23.32,7.5 L 23.32,6.049 L 21.194,6.049 Z" marker-start="none" marker-end="none"/>
+     <path d="M 32.814,7.5 L 32.814,6.008 L 29.081,6.008 L 29.081,4.464 L 32.817,4.464 L 32.817,3.035 L 29.081,3.035 L 29.081,1.48 L 32.803,1.48 L 32.803,0 L 27.406,0 L 27.406,7.5 L 32.814,7.5 Z" marker-start="none" marker-end="none"/>
+     <path d="M 44.055,5.011 C 44.055,3.808 43.579,3.031 42.627,2.68 L 44.528,0 L 42.469,0 L 40.805,2.391 L 39.646,2.391 L 39.646,0 L 37.972,0 L 37.972,7.5 L 40.813,7.5 C 41.98,7.5 42.812,7.302 43.309,6.91 C 43.805,6.514 44.055,5.884 44.055,5.011 Z M 40.87,3.84 C 41.44,3.84 41.83,3.932 42.039,4.119 C 42.246,4.305 42.351,4.602 42.351,5.004 C 42.351,5.408 42.242,5.685 42.028,5.835 C 41.811,5.985 41.439,6.061 40.901,6.061 L 39.646,6.061 L 39.646,3.84 L 40.87,3.84 Z" marker-start="none" marker-end="none"/>
+     <path d="M 50.4,2.724 L 52.312,7.5 L 54.126,7.5 L 51.109,0 L 49.692,0 L 46.678,7.5 L 48.492,7.5 L 50.4,2.724 Z" marker-start="none" marker-end="none"/>
+     <path d="M 68.273,0 L 68.273,7.5 L 69.948,7.5 L 69.948,1.492 L 73.145,1.492 L 73.145,0 L 68.273,0 Z" marker-start="none" marker-end="none"/>
+     <path d="M 82.5,7.5 L 82.5,6.008 L 78.767,6.008 L 78.767,4.464 L 82.5,4.464 L 82.5,3.035 L 78.767,3.035 L 78.767,1.48 L 82.493,1.48 L 82.493,0 L 77.093,0 L 77.093,7.5 L 82.5,7.5 Z" marker-start="none" marker-end="none"/>
+     <path d="M 60.721,4.774 L 62.63,0 L 64.444,0 L 61.429,7.5 L 60.012,7.5 L 56.998,0 L 58.811,0 L 60.721,4.774 Z" marker-start="none" marker-end="none"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

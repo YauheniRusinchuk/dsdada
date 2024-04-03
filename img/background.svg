@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1400 820" preserveAspectRatio="none slice">
+  <defs>
+    <linearGradient id="a" x1="458" x2="405" y1="481" y2="412" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#6b6b6b" stop-opacity=".05"/>
+    </linearGradient>
+    <linearGradient id="b" x1="1012" x2="535" y1="686" y2="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6b6b6b" stop-opacity=".1"/>
+      <stop offset=".58" stop-color="#fff" stop-opacity=".1"/>
+    </linearGradient>
+    <linearGradient id="b1" x1="1400" x2="1200" y1="590" y2="820" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6b6b6b" stop-opacity=".1"/>
+      <stop offset=".58" stop-color="#fff" stop-opacity=".1"/>
+    </linearGradient>
+    <linearGradient id="c" x1="318" x2="310" y1="660" y2="444" gradientUnits="userSpaceOnUse">
+      <stop offset=".49" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".87" stop-color="#6b6b6b" stop-opacity=".08"/>
+    </linearGradient>
+    <linearGradient id="d" x1="468" x2="558" y1="650" y2="425" gradientUnits="userSpaceOnUse">
+      <stop offset=".35" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#6b6b6b" stop-opacity=".05"/>
+    </linearGradient>
+    <linearGradient id="e" x1="-142" x2="282" y1="293" y2="498" xlink:href="#a"/>
+    <linearGradient id="f" x1="1098" x2="1084" y1="837" y2="765" xlink:href="#a"/>
+    <linearGradient id="g" x1="33" x2="72" y1="293" y2="302" xlink:href="#a"/>
+    <linearGradient id="h" x1="250" x2="250" y1="856" y2="728" gradientUnits="userSpaceOnUse">
+      <stop offset=".39" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#6b6b6b" stop-opacity=".05"/>
+    </linearGradient>
+    <linearGradient id="i" x1="1083" x2="1090" y1="733" y2="823" xlink:href="#b"/>
+  </defs>
+  <path fill="#f2f2f4" d="M0,0 h1440 v820 H0 z"/>
+  <path fill="#ebebee" d="M363,820 l35,-350 L497,820 z" opacity=".5"/>
+  <path fill="#ebebee" d="M363,0 l-33,299 210,-148 L497,0 z" opacity=".5"/>
+  <path fill="#e7e7ea" d="M95,427 l200,22 34,-47 h257 l115,-40 273,-126 z"/>
+  <path fill="#e5e5e8" d="M540,469 l135,91 336,167 260,34 z" opacity=".75"/>
+  <path fill="url(#c)" d="M295,449 l2,223 L329,402 z"/>
+  <path fill="url(#d)" d="M501,750 l43,-60 161,-34 -23,-93 L540,469 l46,-67 h-257 l-23,195 z"/>
+  <path fill="url(#a)" d="M329,402 h257 l-46,95 -227,42 z"/>
+  <path fill="url(#e)" d="M0,417 L295,449 l0,69 z" opacity=".75"/>
+  <path fill="#ebebee" d="M1400,210 L540,39 1313,325 1400,334 z"/>
+  <path fill="#ebebee" d="M0,334 L42,219 0,210 z"/>
+  <path fill="url(#f)" d="M1231,818 l39,-57 -260,-34 -103,91 z" opacity=".6"/>
+  <path fill="url(#g)" d="M0,157 v258 l95,13 38,-226 z" opacity=".57"/>
+  <path fill="#ebebee" d="M0,156 l133,45 190,-39 17,-45 L0,90 z"/>
+  <path fill="#ebebee" d="M1400,90 L1300,121 L1400,156 z"/>
+  <path fill="url(#h)" d="M293,820 l208,-71 -501,-35 V820 h293"/>
+  <path fill="#e5e5e8" d="M0,637 v78 l501,34 -501,-113"/>
+  <path fill="#e5e5e8" d="M1400,636 L1199,590 1400,715 z"/>
+  <path fill="url(#b1)" d="M1400,715 L1199,590 1400,820 z"/>
+  <path fill="url(#b)" d="M905,821 l106,-94 -329,-164 23,93 -170,35 z" opacity=".9"/>
+  <path fill="url(#i)" d="M1190,822 l64,-1 16,-59 -260,-34 -106,94 285,1" opacity=".9"/>
+</svg>

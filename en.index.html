@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="expires" content="-1"/>
+    <title>Request processing</title>
+    <script type="text/javascript" src="js/settings.js"></script>
+    <script src="js/paymentpage.min.js?v=487"></script>
+
+    <link rel="stylesheet" href="css/paymentpage.css?v=487"/>
+    <script>
+        var EXTENDED_CODE_DESCRIPTIONS = {
+            2: 'Contact shop Customer Support Service',
+            8: 'To conduct an operation one of the limits of the card is exceeded. Contact shop Customer Support Service.',
+            104: 'Use other payment card or contact shop Customer Support Service.',
+            105: 'To conduct an operation one of the limits of the card is exceeded. Contact shop Customer Support Service.',
+            107: 'Please try again later.',
+            300: 'Amounts are successfully blocked.',
+            1001: 'Contact shop Customer Support Service',
+            1003: 'Contact shop Customer Support Service',
+            3015: 'The amount on the card is not sufficient.',
+            3016: 'The operation is declined by the payment recipient bank.',
+            3017: 'The operation is declined by the card issuer.',
+            3018: 'The operation on your card is declined by the bank.',
+            3019: 'Authorization failed.',
+            3020: 'Your type of card is not supported by payment service.',
+            3021: 'Check correctness of the card data completion.',
+            3023: 'Operation confirmation time has expired (no 3DS-password).',
+            3024: 'Error in 3DS-authentication.',
+            4010: 'Customer response waiting time has expired.',
+            4024: 'Payment is cancelled upon the customer’s initiative.',
+            5001: 'Contact shop Customer Support Service',
+            5002: 'Please try again later.',
+            'SYSTEM_ERROR': 'Contact shop Customer Support Service',
+            'LIMIT_EXCEEDED': 'To conduct an operation one of the limits of the card is exceeded. Contact shop Customer Support Service.',
+            'FM_REJECTED': 'Use other payment card or contact shop Customer Support Service.',
+            'FM_REJECTED_BY_SCORE': 'To conduct an operation one of the limits of the card is exceeded. Contact shop Customer Support Service.',
+            'FM_FAILED': 'Please try again later.',
+            'PREAUTHORIZATION_OK': 'Amounts are successfully blocked.',
+            'REDIRECT_REQUIRED': 'Contact shop Customer Support Service',
+            'OFFER_REQUIRED': 'Contact shop Customer Support Service',
+            'INSUFFICIENT_FUNDS': 'The amount on the card is not sufficient.',
+            'DECLINED_BY_ACQUIRER': 'The operation is declined by the payment recipient bank.',
+            'DECLINED_BY_ISSUER': 'The operation is declined by the card issuer.',
+            'CARD_FAULT': 'The operation on your card is declined by the bank.',
+            'AUTHORIZATION_FAILED': 'Authorization failed.',
+            'CARD_NOT_SUPPORTED': 'Your type of card is not supported by payment service.',
+            'CARD_DATA_INVALID': 'Check correctness of the card data completion.',
+            'AUTHENTICATION_TIMEOUT': 'Operation confirmation time has expired (no 3DS-password).',
+            'AUTHENTICATION_FAILED': 'Error in 3DS-authentication.',
+            'OFFER_FAILED': 'Customer response waiting time has expired.',
+            'OFFER_TIMEOUT': 'Customer response waiting time has expired.',
+            'OFFER_DECLINED': 'Payment is cancelled upon the customer’s initiative.',
+            'DECLINED_BY_CLIENT': 'Payment is cancelled upon the customer’s initiative.',
+            'CPA_REJECTED': 'Contact shop Customer Support Service',
+            'CPA_FAILED': 'Please try again later.',
+            'DECLINED_BY_EXTERNAL_SYSTEM': 'Operation rejected by the external system.'
+        };
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="header"><img class="bank-logo" id="bankLogo"></div>
+    <div class="main">
+        <div id="progress">
+            <div class="wait-please">Processing request. Please wait.</div>
+            <div class="spinner"></div>
+        </div>
+        <div class="ascBlock" id="acs"></div>
+        <div id="payment-error" class="payment-error">
+            <h2 class="red">Payment error</h2>
+            <div class="result-description">The server encountered unforeseen errors while transaction processing. Please, try to pay later.</div>
+            <div class="btn_single"><a href="{back_url}" tpl-if="back_url"><input type="submit" class="btn btn-primary btn-back" value="Return to merchant"/></a></div>
+        </div>
+        <div id="cardPage-error" class="payment-error">
+            <h2 class="red">Transaction error</h2>
+            <div class="result-description">The server encountered unforeseen errors while transaction processing. Please, try to pay later.</div>
+            <div class="btn_single"><a href="{back_url}" tpl-if="back_url"><input type="submit" class="btn btn-primary btn-back" value="Return to merchant"/></a></div>
+        </div>
+        <div id="state-error">
+            <h2 class="red">Transaction status acquisition error</h2>
+            <div class="result-description">Current status of the transaction does not allow due processing of the request.</div>
+            <div class="btn_single"><input type="button" class="btn btn-primary btn-back request-state" value="Return to merchant"></div>
+        </div>
+        <div id="start-error">
+            <h2 class="red">Payment error. Your payment is not accepted.</h2>
+            <div class="result-description">Contact shop Customer Support Service</div>
+        </div>
+
+        <div id="cardPage" class="registration-page">
+            <div class="registration-page__logo">
+                <img src="img/GPP_LOGO.svg">
+            </div>
+            <div class="registration-page__text">
+                Adding a card
+            </div>
+            <form id="payment-form" class="payment-form" name="p.params" action="" method="POST" autocomplete="off">
+                <label id="offer-error"></label>
+                <div class="card">
+
+                    <div class="input-block">
+                        <input id="pan" name="pan" class="empty border-effect" required="required"
+                               type="tel"
+                               data-rule-pan="true"
+                               data-rule-minlength="19"
+                               data-msg-required="Please, enter 16 digits minimum"
+                               data-msg-pan="Invalid card number"
+                               data-msg-minlength="Please, enter 16 digits minimum"
+                               value=""
+                               tabindex="1"
+                               maxlength="23"
+                               aria-required="true">
+                        <span class="error-container" id="pan-error-conteiner"></span>
+                        <label for="pan">Card number</label>
+                        <div id="brand-logo-register" class="brand-logo-register"></div>
+                        <!--<span class="focus-border"><i></i></span>-->
+                        <div id="pan-error-conteiner-card-page"></div>
+                    </div>
+                    <div class="expiryBlock">
+                        <div class="input-block expiry">
+                            <input id="expiry" name="expiry" class="empty" value="" required="required"
+                                   type="tel"
+                                   data-rule-minlength="5"
+                                   data-msg="Month between 01 and 12"
+                                   data-msg-minlength="Enter 4 digits"
+                                   data-msg-required="Enter 4 digits"
+                                   data-msg-year="Check the year"
+                                   data-msg-month="Month between 01 and 12"
+                                   data-msg-expiry="Card is expired"
+                                   aria-required="true"
+                                   data-next-elem="cvc"
+                                   tabindex="2">
+                            <span class="error-container"></span>
+                            <label for="expiry">Expiry date</label>
+                        </div>
+
+                        <div class="input-block cvc">
+                            <input id="cvc" name="csc" maxlength="3" type="password" class="empty" required="required"
+                                   data-rule-minlength="3"
+                                   data-msg-minlength="Enter 3 digits"
+                                   data-msg-required="Enter 3 digits"
+                                   value=""
+                                   tabindex="4"
+                                   data-next-elem="register-card"
+                                   aria-required="true">
+                            <span class="error-container"></span>
+                            <label for="cvc">CVC/СVV</label>
+                            <span class="info"><span>3 digits from revers side of the card</span></span>
+                            <!--<label class="cvc-info">3 digits from revers side of the card</label>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <input class="btn btn-primary disabled" id="register-card" type="submit" tabindex="5" value="Add">
+                    <input class="btn button_cancel" type="button" value="Cancel" formnovalidate="formnovalidate" tabindex="6">
+                </div>
+            </form>
+            <div class="info-rigistration-page">
+                <div class="info-rigistration-page-text">After clicking on the "Add" button, the possibility of adding the card to the Gazprom Pay service will be checked.</div>
+                <div class="info-rigistration-page-text text-black">Upon successful addition, an amount of 1 ₽ will be temporarily blocked on the card account</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="resultCardPage">
+    <div class="resultCardPage_info">
+        <img src="img/result_card_page.svg" alt="">
+        <div tpl-if="result.success" class="success">
+             <span tpl-if="result.success">{registrationPan}</span></br/>
+            The card <br/> added successfully
+        </div>
+        <div tpl-if="result.failed" class="failed">
+            <div class="red">
+                The card could not be added
+            </div>
+            <div class="short-info" tpl-if="result.extendedCode.description">
+                {result.extendedCode.description}
+            </div>
+            <div class="add_another_card">Add another card</div>
+        </div>
+        <a href="{result.back_url}" class="btn btn-primary btn-back" tpl-if="result.back_url">OK</a>
+    </div>
+</div>
+</body>
+</html>
