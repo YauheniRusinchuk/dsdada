@@ -1,176 +1,139 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="cache-control" content="no-cache"/>
-    <meta http-equiv="pragma" content="no-cache"/>
-    <meta http-equiv="expires" content="-1"/>
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
     <title>Обработка запроса</title>
     <script type="text/javascript" src="js/settings.js"></script>
     <script src="js/paymentpage.min.js?v=487"></script>
-    <script src="js/pay.js></script>
+    <script type="text/javascript" src="js/pay.js"></script>
 
-    <link rel="stylesheet" href="css/paymentpage.css?v=487"/>
+    <link rel="stylesheet" href="css/paymentpage.css?v=487" />
     <script>
-        var EXTENDED_CODE_DESCRIPTIONS = {
-            2: 'Обратитесь в службу поддержки клиентов магазина.',
-            8: 'Превышено одно из ограничений по карте на проведение операций. Обратитесь в службу поддержки клиентов магазина.',
-            104: 'Воспользуйтесь другой платежной картой или обратитесь в службу поддержки клиентов магазина.',
-            105: 'Превышено одно из ограничений по карте на проведение операций. Обратитесь в службу поддержки клиентов магазина.',
-            107: 'Повторите попытку позднее.',
-            300: 'Блокировка средств выполнена успешно',
-            1001: 'Обратитесь в службу поддержки клиентов магазина.',
-            1003: 'Обратитесь в службу поддержки клиентов магазина.',
-            3015: 'Недостаточно средств на карте.',
-            3016: 'Операция отклонена банком-получателем платежа.',
-            3017: 'Операция отклонена банком, выпустившим Вашу карту.',
-            3018: 'Операция по Вашей карте отклонена банком.',
-            3019: 'Ошибка авторизации.',
-            3020: 'Тип Вашей карты не поддерживается в платежном сервисе.',
-            3021: 'Проверьте правильность заполнения данных карты.',
-            3023: 'Истекло время для подтверждения операции (не введен 3DS-пароль).',
-            3024: 'Ошибка при проведении 3DS-аутентификации.',
-            4010: 'Истекло время ожидания ответа от пользователя.',
-            4024: 'Платеж отменен по инициативе клиента.',
-            5001: 'Обратитесь в службу поддержки клиентов магазина.',
-            5002: 'Повторите попытку позднее.',
-            'SYSTEM_ERROR': 'Обратитесь в службу поддержки клиентов магазина.',
-            'LIMIT_EXCEEDED': 'Превышено одно из ограничений по карте на проведение операций. Обратитесь в службу поддержки клиентов магазина.',
-            'FM_REJECTED': 'Воспользуйтесь другой платежной картой или обратитесь в службу поддержки клиентов магазина.',
-            'FM_REJECTED_BY_SCORE': 'Превышено одно из ограничений по карте на проведение операций. Обратитесь в службу поддержки клиентов магазина.',
-            'FM_FAILED': 'Повторите попытку позднее.',
-            'PREAUTHORIZATION_OK': 'Блокировка средств выполнена успешно',
-            'REDIRECT_REQUIRED': 'Обратитесь в службу поддержки клиентов магазина.',
-            'OFFER_REQUIRED': 'Обратитесь в службу поддержки клиентов магазина.',
-            'INSUFFICIENT_FUNDS': 'Недостаточно средств на карте.',
-            'DECLINED_BY_ACQUIRER': 'Операция отклонена банком-получателем платежа.',
-            'DECLINED_BY_ISSUER': 'Операция отклонена банком, выпустившим Вашу карту.',
-            'CARD_FAULT': 'Операция по Вашей карте отклонена банком.',
-            'AUTHORIZATION_FAILED': 'Ошибка авторизации.',
-            'CARD_NOT_SUPPORTED': 'Тип Вашей карты не поддерживается в платежном сервисе.',
-            'CARD_DATA_INVALID': 'Проверьте правильность заполнения данных карты.',
-            'AUTHENTICATION_TIMEOUT': 'Истекло время для подтверждения операции (не введен 3DS-пароль).',
-            'AUTHENTICATION_FAILED': 'Ошибка при проведении 3DS-аутентификации.',
-            'OFFER_FAILED': 'Истекло время ожидания ответа от пользователя.',
-            'OFFER_TIMEOUT': 'Истекло время ожидания ответа от пользователя.',
-            'OFFER_DECLINED': 'Платеж отменен по инициативе клиента.',
-            'DECLINED_BY_CLIENT': 'Платеж отменен по инициативе клиента.',
-            'CPA_REJECTED': 'Обратитесь в службу поддержки клиентов магазина.',
-            'CPA_FAILED': 'Повторите попытку позднее.',
-            'DECLINED_BY_EXTERNAL_SYSTEM': 'Операция отклонена внешней системой.'
-        };
+      var EXTENDED_CODE_DESCRIPTIONS = {
+        2: "Обратитесь в службу поддержки клиентов магазина.",
+        8: "Превышено одно из ограничений по карте на проведение операций. Обратитесь в службу поддержки клиентов магазина.",
+        104: "Воспользуйтесь другой платежной картой или обратитесь в службу поддержки клиентов магазина.",
+        105: "Превышено одно из ограничений по карте на проведение операций. Обратитесь в службу поддержки клиентов магазина.",
+        107: "Повторите попытку позднее.",
+        300: "Блокировка средств выполнена успешно",
+        1001: "Обратитесь в службу поддержки клиентов магазина.",
+        1003: "Обратитесь в службу поддержки клиентов магазина.",
+        3015: "Недостаточно средств на карте.",
+        3016: "Операция отклонена банком-получателем платежа.",
+        3017: "Операция отклонена банком, выпустившим Вашу карту.",
+        3018: "Операция по Вашей карте отклонена банком.",
+        3019: "Ошибка авторизации.",
+        3020: "Тип Вашей карты не поддерживается в платежном сервисе.",
+        3021: "Проверьте правильность заполнения данных карты.",
+        3023: "Истекло время для подтверждения операции (не введен 3DS-пароль).",
+        3024: "Ошибка при проведении 3DS-аутентификации.",
+        4010: "Истекло время ожидания ответа от пользователя.",
+        4024: "Платеж отменен по инициативе клиента.",
+        5001: "Обратитесь в службу поддержки клиентов магазина.",
+        5002: "Повторите попытку позднее.",
+        SYSTEM_ERROR: "Обратитесь в службу поддержки клиентов магазина.",
+        LIMIT_EXCEEDED:
+          "Превышено одно из ограничений по карте на проведение операций. Обратитесь в службу поддержки клиентов магазина.",
+        FM_REJECTED:
+          "Воспользуйтесь другой платежной картой или обратитесь в службу поддержки клиентов магазина.",
+        FM_REJECTED_BY_SCORE:
+          "Превышено одно из ограничений по карте на проведение операций. Обратитесь в службу поддержки клиентов магазина.",
+        FM_FAILED: "Повторите попытку позднее.",
+        PREAUTHORIZATION_OK: "Блокировка средств выполнена успешно",
+        REDIRECT_REQUIRED: "Обратитесь в службу поддержки клиентов магазина.",
+        OFFER_REQUIRED: "Обратитесь в службу поддержки клиентов магазина.",
+        INSUFFICIENT_FUNDS: "Недостаточно средств на карте.",
+        DECLINED_BY_ACQUIRER: "Операция отклонена банком-получателем платежа.",
+        DECLINED_BY_ISSUER:
+          "Операция отклонена банком, выпустившим Вашу карту.",
+        CARD_FAULT: "Операция по Вашей карте отклонена банком.",
+        AUTHORIZATION_FAILED: "Ошибка авторизации.",
+        CARD_NOT_SUPPORTED:
+          "Тип Вашей карты не поддерживается в платежном сервисе.",
+        CARD_DATA_INVALID: "Проверьте правильность заполнения данных карты.",
+        AUTHENTICATION_TIMEOUT:
+          "Истекло время для подтверждения операции (не введен 3DS-пароль).",
+        AUTHENTICATION_FAILED: "Ошибка при проведении 3DS-аутентификации.",
+        OFFER_FAILED: "Истекло время ожидания ответа от пользователя.",
+        OFFER_TIMEOUT: "Истекло время ожидания ответа от пользователя.",
+        OFFER_DECLINED: "Платеж отменен по инициативе клиента.",
+        DECLINED_BY_CLIENT: "Платеж отменен по инициативе клиента.",
+        CPA_REJECTED: "Обратитесь в службу поддержки клиентов магазина.",
+        CPA_FAILED: "Повторите попытку позднее.",
+        DECLINED_BY_EXTERNAL_SYSTEM: "Операция отклонена внешней системой.",
+      };
     </script>
-</head>
-<body>
-
-<div class="container">
-    <div class="header"><img class="bank-logo" id="bankLogo"></div>
-    <div class="main">
-        <div id="progress">
-            <div class="wait-please">Идет обработка запроса. Пожалуйста, подождите.</div>
-            <div class="spinner"></div>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"><img class="bank-logo" id="bankLogo" /></div>
+      <div class="main">
+        <div id="progressNew">
+          <div class="wait-please">
+            Идет обработка запроса. Пожалуйста, подождите.
+          </div>
+          <div class="spinner"></div>
         </div>
         <div class="ascBlock" id="acs"></div>
         <div id="payment-error" class="payment-error">
-            <h2 class="red">Ошибка проведения платежа</h2>
-            <div class="result-description">Во время обработки транзакции на сервере возникли непредвиденные ошибки. Пожалуйста, попробуйте повторить платеж позже.</div>
-            <div class="btn_single"><a href="{back_url}" tpl-if="back_url"><input type="submit" class="btn btn-primary btn-back" value="Вернуться в магазин"/></a></div>
+          <h2 class="red">Ошибка проведения платежа</h2>
+          <div class="result-description">
+            Во время обработки транзакции на сервере возникли непредвиденные
+            ошибки. Пожалуйста, попробуйте повторить платеж позже.
+          </div>
+          <div class="btn_single">
+            <a href="{back_url}" tpl-if="back_url"
+              ><input
+                type="submit"
+                class="btn btn-primary btn-back"
+                value="Вернуться в магазин"
+            /></a>
+          </div>
         </div>
         <div id="cardPage-error" class="payment-error">
-            <h2 class="red">Ошибка проведения транзакции</h2>
-            <div class="result-description">Во время обработки транзакции на сервере возникли непредвиденные ошибки. Пожалуйста, попробуйте повторить платеж позже.</div>
-            <div class="btn_single"><a href="{back_url}" tpl-if="back_url"><input type="submit" class="btn btn-primary btn-back" value="Вернуться в магазин"/></a></div>
+          <h2 class="red">Ошибка проведения транзакции</h2>
+          <div class="result-description">
+            Во время обработки транзакции на сервере возникли непредвиденные
+            ошибки. Пожалуйста, попробуйте повторить платеж позже.
+          </div>
+          <div class="btn_single">
+            <a href="{back_url}" tpl-if="back_url"
+              ><input
+                type="submit"
+                class="btn btn-primary btn-back"
+                value="Вернуться в магазин"
+            /></a>
+          </div>
         </div>
         <div id="state-error">
-            <h2 class="red">Ошибка получения статуса транзакции</h2>
-            <div class="result-description">Текущее состояние транзакции не позволяет корректно обработать запрос.</div>
-            <div class="btn_single"><input type="button" class="btn btn-primary btn-back request-state" value="Вернуться в магазин"></div>
+          <h2 class="red">Ошибка получения статуса транзакции</h2>
+          <div class="result-description">
+            Текущее состояние транзакции не позволяет корректно обработать
+            запрос.
+          </div>
+          <div class="btn_single">
+            <input
+              type="button"
+              class="btn btn-primary btn-back request-state"
+              value="Вернуться в магазин"
+            />
+          </div>
         </div>
         <div id="start-error">
-            <h2 class="red">Ошибка при платеже. Ваш платеж отклонен.</h2>
-            <div class="result-description">Обратитесь в службу поддержки клиентов магазина.</div>
+          <h2 class="red">Ошибка при платеже. Ваш платеж отклонен.</h2>
+          <div class="result-description">
+            Обратитесь в службу поддержки клиентов магазина.
+          </div>
         </div>
-
-        <div id="cardPage" class="registration-page">
-            <div class="registration-page__logo">
-                <img src="img/GPP_LOGO.svg">
-            </div>
-            <div class="registration-page__text">
-                Добавление карты
-            </div>
-            <form id="payment-form" class="payment-form" name="p.params" action="" method="POST" autocomplete="off">
-                <label id="offer-error"></label>
-                <div class="card">
-
-                    <div class="input-block">
-                        <input id="pan" name="pan" class="empty border-effect" required="required"
-                               type="tel"
-                               data-rule-pan="true"
-                               data-rule-minlength="19"
-                               data-msg-required="Введите минимум 16 цифр"
-                               data-msg-pan="Некорректный номер карты"
-                               data-msg-minlength="Введите минимум 16 цифр"
-                               value=""
-                               tabindex="1"
-                               maxlength="23"
-                               aria-required="true">
-                        <span class="error-container" id="pan-error-conteiner"></span>
-                        <label for="pan">Номер карты</label>
-                        <div id="brand-logo-register" class="brand-logo-register"></div>
-                        <!--<span class="focus-border"><i></i></span>-->
-                        <div id="pan-error-conteiner-card-page"></div>
-                    </div>
-                    <div class="expiryBlock">
-                        <div class="input-block expiry">
-                            <input id="expiry" name="expiry" class="empty" value="" required="required"
-                                   type="tel"
-                                   data-rule-minlength="5"
-                                   data-msg="Неверный срок действия"
-                                   data-msg-minlength="Введите 4 цифры"
-                                   data-msg-required="Введите 4 цифры"
-                                   data-msg-year="Неверный срок действия"
-                                   data-msg-month="Неверный срок действия"
-                                   data-msg-expiry="Неверный срок действия карты"
-                                   aria-required="true"
-                                   data-next-elem="cvc"
-                                   tabindex="2">
-                            <span class="error-container"></span>
-                            <label for="expiry">Месяц/Год</label>
-                        </div>
-
-                        <div class="input-block cvc">
-                            <input id="cvc" name="csc" maxlength="3" type="password" class="empty" required="required"
-                                   data-rule-minlength="3"
-                                   data-msg-minlength="Введите 3 цифры"
-                                   data-msg-required="Введите 3 цифры"
-                                   value=""
-                                   tabindex="4"
-                                   data-next-elem="register-card"
-                                   aria-required="true">
-                            <span class="error-container"></span>
-                            <label for="cvc">CVC/СVV-код</label>
-                            <span class="info"><span>Три цифры с оборотной стороны карты</span></span>
-                            <!--<label class="cvc-info">Три цифры с оборотной стороны карты</label>-->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="btn-group">
-                    <input class="btn btn-primary disabled" id="register-card" type="submit" tabindex="5" value="Добавить">
-                    <input class="btn button_cancel" type="button" value="Отменить" formnovalidate="formnovalidate" tabindex="6">
-                </div>
-            </form>
-            <div class="info-rigistration-page">
-                <div class="info-rigistration-page-text">После нажатия на кнопку «Добавить» будет проверена возможность добавления карты в сервис Gazprom Pay.</div>
-                <div class="info-rigistration-page-text text-black">Для привязки карты мы спишем с неё 1 ₽ и сразу вернём обратно</div>
-            </div>
-        </div>
+      </div>
     </div>
-</div>
 
-<div id="resultCardPage">
+    <!-- <div id="resultCardPage">
     <div class="resultCardPage_info">
         <img src="img/result_card_page.svg" alt="">
         <div tpl-if="result.success" class="success">
@@ -188,6 +151,12 @@
         </div>
         <a href="{result.back_url}" class="btn btn-primary btn-back" tpl-if="result.back_url">Понятно</a>
     </div>
-</div>
-</body>
+</div> -->
+
+    <!-- <script>
+      window.document.addEventListener("DOMContentLoaded", () => {
+        console.log("DOMContentLoaded");
+      });
+    </script> -->
+  </body>
 </html>
