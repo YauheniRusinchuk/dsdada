@@ -3,17 +3,18 @@ window.document.addEventListener("DOMContentLoaded", () => {
   const acsBlock = document.getElementById("acs");
   const iframe = document.getElementById("acsFrame");
   const progress = document.getElementById("progressNew");
+  const main = document.getElementsByClassName('main')[0]
 
-  const params = new URLSearchParams(window.location.search);
+  progress.style.display = "none";
 
-  const back_url = params.get("back_url");
+  // const params = new URLSearchParams(window.location.search);
 
-  console.log('pay.js')
+  // const back_url = params.get("back_url");
 
-  if (back_url) {
-    progress.style.display = "none";
-    window.location.href = back_url; 
-  }
+  // if (back_url) {
+  //   progress.style.display = "none";
+  //   window.location.href = back_url; 
+  // }
 
   if (iframe) {
     iframe.style.height = "100vh";
