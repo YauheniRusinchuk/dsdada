@@ -11,12 +11,18 @@
 
 window.onload = function() {
 
-  const iframeDocument = document.querySelector('iframe').contentDocument || document.querySelector('iframe').contentWindow.document;
+  // const iframeDocument = document.querySelector('iframe').contentDocument || document.querySelector('iframe').contentWindow.document;
+
+  // const iframeDocument = document.querySelector('iframe')
+
+	const target = document.querySelector('body');
 
   const progress = document.getElementById("progressNew");
   // const result = document.querySelector('#resultCardPage');
   // const urlParams = new URLSearchParams(window.location.search);
   // const back_url = urlParams.get('back_url');
+
+  // console.log('iframeDocument :', iframeDocument)
 
   progress.style.display = "none";
 
@@ -25,8 +31,10 @@ window.onload = function() {
         if (mutation.type === 'childList') {
           mutation.addedNodes.forEach(function(addedNode) {
             if (addedNode.tagName === 'DIV' && addedNode.id === 'resultCardPage') {
+              // Выполнить редирект, если добавлен div с id 'my-id'
               const style = getComputedStyle(addedNode);
               if (style.display !== 'none') {
+                // Выполнить редирект, если добавлен видимый div с id 'my-id'
                 window.location.href('https://google.com');
               }
 
@@ -38,5 +46,6 @@ window.onload = function() {
 
   const config = { attributes: true, childList: true, subtree: true };
   // const target = document.querySelector('#resultCardPage');
-  observer.observe(iframeDocument, config);
+  observer.observe(target, config);
 };
+
