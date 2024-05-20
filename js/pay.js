@@ -25,10 +25,8 @@ window.onload = function() {
         if (mutation.type === 'childList') {
           mutation.addedNodes.forEach(function(addedNode) {
             if (addedNode.tagName === 'DIV' && addedNode.id === 'resultCardPage') {
-              // Выполнить редирект, если добавлен div с id 'my-id'
               const style = getComputedStyle(addedNode);
               if (style.display !== 'none') {
-                // Выполнить редирект, если добавлен видимый div с id 'my-id'
                 window.location.href('https://google.com');
               }
 
