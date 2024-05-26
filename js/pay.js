@@ -10,42 +10,29 @@
 
 
 window.onload = function() {
-
-  // const iframeDocument = document.querySelector('iframe').contentDocument || document.querySelector('iframe').contentWindow.document;
-
-  // const iframeDocument = document.querySelector('iframe')
-
-	const target = document.querySelector('body');
-
+	// const iframeDocument = document.querySelector('iframe').contentDocument || document.querySelector('iframe').contentWindow.document;
   const progress = document.getElementById("progressNew");
   // const result = document.querySelector('#resultCardPage');
   // const urlParams = new URLSearchParams(window.location.search);
   // const back_url = urlParams.get('back_url');
 
   // console.log('iframeDocument :', iframeDocument)
-
   progress.style.display = "none";
 
-  const observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-        if (mutation.type === 'childList') {
-          mutation.addedNodes.forEach(function(addedNode) {
-            if (addedNode.tagName === 'DIV' && addedNode.id === 'resultCardPage') {
-              // Выполнить редирект, если добавлен div с id 'my-id'
-              const style = getComputedStyle(addedNode);
-              if (style.display !== 'none') {
-                // Выполнить редирект, если добавлен видимый div с id 'my-id'
-                window.location.href('https://google.com');
-              }
+  const idInterval = setInterval(() => {
+    checkIframeAndSrc();
+  }, 100)
 
-            }
-          });
-        }
-      });
-  });
 
-  const config = { attributes: true, childList: true, subtree: true };
-  // const target = document.querySelector('#resultCardPage');
-  observer.observe(target, config);
+  function checkIframeAndSrc () {
+    const iframeDocument = document.querySelector('iframe')
+    if (iframeDocument) {
+      const src = iframeDocument.src;
+      if (src.includes('secure.tinkoff.ru')) {
+        clearInterval(idInterval)
+        window.location.href = 'https://gpay.online.gpb.ru/oks-gaz-pay'
+      }
+    }
+  }
 };
 
