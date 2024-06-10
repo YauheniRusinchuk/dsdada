@@ -15,3 +15,16 @@ iframe {
     height: 100%;
     border: none;
 }
+
+#progress_pay {
+    margin-top: 70px !important;
+}
+
+.wait-please {
+    text-align: center !important;
+}
+
+.spinner {
+    height: 90px;
+    background: url(../img/spinner.gif) center top no-repeat;
+}
