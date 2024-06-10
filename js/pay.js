@@ -129,12 +129,6 @@ window.onload = function () {
   observeAcsBlock.observe(divWhereIframe, config);
 
 
-
-  setTimeout(() => {
-    divWhereIframe.style.display = 'flex'
-  }, 5000)
-
-
   // const iframe = document.createElement("iframe");
   // const block = document.getElementById("acs")
 
